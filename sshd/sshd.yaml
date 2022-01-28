@@ -11,7 +11,15 @@
       name: openssh-server=1:7.6p1-4ubuntu0.5
       state: present
   
-  - name: Start service SSHD, if not started
+  - name: Copy config file to the host
+    copy:
+      src: sshd_config
+      dest: /etc/ssh/sshd_config
+      owner: root
+      group: root
+      mode: '644'
+
+  - name: Restart service SSHD
     service:
       name: sshd
-      state: started
+      state: restarted 
