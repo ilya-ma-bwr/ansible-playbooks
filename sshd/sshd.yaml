@@ -1,0 +1,9 @@
+---
+- tasks:
+  - name: "Install SSHD"
+    apt:
+      update_cache: yes
+      force_apt_get: yes
+      name: openssh-server=1:7.6p1-4ubuntu0.5
+      state: present
+  
